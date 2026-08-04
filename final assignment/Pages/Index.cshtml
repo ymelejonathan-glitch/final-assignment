@@ -1,0 +1,46 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<h1>My Favorite Song</h1>
+
+<p>Enjoy my favorite music video!</p>
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
+        allowfullscreen>
+</iframe>
+
+<p>
+    <button onclick="myMove()">Click Me</button>
+</p>
+
+<div id="myContainer">
+    <div id="myAnimation"></div>
+</div>
+
+<script>
+    var id = null;
+    function myMove() {
+      var elem = document.getElementById("myAnimation");
+      var pos = 0;
+      clearInterval(id);
+      id = setInterval(frame, 10);
+      function frame() {
+        if (pos == 350) {
+          clearInterval(id);
+        } else {
+          pos++;
+          elem.style.top = pos + 'px';
+          elem.style.left = pos + 'px';
+        }
+      }
+    }
+</script>
